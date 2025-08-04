@@ -27,5 +27,5 @@ for file in list_pathway: # Initiate loop
          destination_path = os.path.join(txt_dest, file)
          shutil.move(source_path, destination_path)
 
-#Version 1
-#Make a new version which creates folders rather than using pre exisiting
+#Version 2
+#Next step is to remove repeating
