@@ -15,12 +15,15 @@ for file in list_pathway: # Initiate loop
     source_path = os.path.join(pathway, file) # Original location of files set as source. Joined the file to the pathway.
     
     if type in [".jpg", ".png"]: # Extension check conditionals
+         os.makedirs(images_dest, exist_ok=True) # Makes folder if it doesn't exist. Boolean prevents fileError
          destination_path = os.path.join(images_dest, file) # final destinations
          shutil.move(source_path, destination_path) # Source is moved to new path
     elif type == ".zip":
+         os.makedirs(zip_dest, exist_ok=True)
          destination_path = os.path.join(zip_dest, file)
          shutil.move(source_path, destination_path)
-    else:
+    elif type == ".txt":
+         os.makedirs(txt_dest, exist_ok=True)
          destination_path = os.path.join(txt_dest, file)
          shutil.move(source_path, destination_path)
 
