@@ -11,21 +11,19 @@ txt_dest = r"C:\Users\NGURUNG2\OneDrive\OneDrive - JLR\Documents\VSCODE\Python\F
 print(list_pathway) # shows original content
 
 for file in list_pathway: # Initiate loop
+    destination_path = None # prevent crashing if ext doesnt match an if statement
     name, type = os.path.splitext(file) # File seperated into the name and extension (EXT used later to seperate)
     source_path = os.path.join(pathway, file) # Original location of files set as source. Joined the file to the pathway.
     
     if type in [".jpg", ".png"]: # Extension check conditionals
          os.makedirs(images_dest, exist_ok=True) # Makes folder if it doesn't exist. Boolean prevents fileError
          destination_path = os.path.join(images_dest, file) # final destinations
-         shutil.move(source_path, destination_path) # Source is moved to new path
     elif type == ".zip":
          os.makedirs(zip_dest, exist_ok=True)
          destination_path = os.path.join(zip_dest, file)
-         shutil.move(source_path, destination_path)
     elif type == ".txt":
          os.makedirs(txt_dest, exist_ok=True)
          destination_path = os.path.join(txt_dest, file)
-         shutil.move(source_path, destination_path)
-
-#Version 2
-#Next step is to remove repeating
+    
+    shutil.move(source_path, destination_path) # Source is moved to new path
+#Version 3
